@@ -6,16 +6,13 @@ from app.domain.usecases import (CreditCardParams,
                                  UserParams,
                                  UserLoginParams)
 from app.main.adapter import fastapi_adapter
-from app.main.auth import token_required
+from app.main.auth import token_required, admin_required
 from app.main.factories import (create_credit_card_factory,
                                 create_user_factory,
                                 list_credit_cards_factory,
                                 get_credit_card_factory,
                                 user_login_factory)
-from app.services.helpers.helpers import SECRET_KEY
-from app.services.helpers.http import HttpResponse
 
-SECRET_KEY = 'maistodos'
 
 router = APIRouter(
     prefix='/api/v1',
@@ -31,6 +28,8 @@ router = APIRouter(
 )
 
 @router.post('/credit-card')
+@token_required
+@admin_required
 def add_credit_card(
     body: CreditCardParams,
     request: Request,
@@ -40,6 +39,7 @@ def add_credit_card(
 
 @router.get('/credit-card')
 @token_required
+@admin_required
 def list_credit_cards(
     request: Request,
     response: Response
@@ -47,6 +47,8 @@ def list_credit_cards(
     return fastapi_adapter(None, response, list_credit_cards_factory())
 
 @router.get('/credit-card/{id_card}')
+@token_required
+@admin_required
 def get_credit_card(
     id_card: int,
     request: Request,
