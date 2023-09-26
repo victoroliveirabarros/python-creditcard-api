@@ -5,7 +5,8 @@ from app.infra.database import engine
 from app.services.usecases import (CreateCreditCardUsecase,
                                    ListCreditCardsUsecase,
                                    GetCreditCardUsecase,
-                                   CreateUserUsecase)
+                                   CreateUserUsecase,
+                                   UserLoginUsecase)
 
 def create_credit_card_factory() -> Usecase:
     Session = sessionmaker(bind=engine)
@@ -33,5 +34,12 @@ def create_user_factory() -> Usecase:
     Session = sessionmaker(bind=engine)
 
     return CreateUserUsecase(
+        session=Session
+    )
+
+def user_login_factory() -> Usecase:
+    Session = sessionmaker(bind=engine)
+
+    return UserLoginUsecase(
         session=Session
     )
