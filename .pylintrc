@@ -1,0 +1,23 @@
+[MASTER]
+disable=
+    C0114, # missing-module-docstring
+    C0115,
+    C0116,
+    attribute-defined-outside-init,
+    redefined-outer-name,
+    raise-missing-from,
+    too-few-public-methods,
+    too-many-arguments,
+    too-many-instance-attributes,
+    logging-fstring-interpolation,
+extension-pkg-whitelist=pydantic
+[BASIC]
+good-names=i,
+           j,
+           k,
+           v,
+           ex,
+           e,
+           _
+[FORMAT]
+max-line-length=127
