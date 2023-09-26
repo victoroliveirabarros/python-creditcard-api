@@ -1,5 +1,4 @@
 from http import HTTPStatus
-import datetime
 
 from app.domain.models import User
 from app.domain.usecases import UserLoginContract, UserLoginParams
@@ -19,8 +18,6 @@ class UserLoginUsecase(UserLoginContract):
     def execute(self, params: UserLoginParams) -> HttpResponse:
         username = params.username
         password = params.password
-
-        print('entrou aqui')
 
         session = self.session()
 
