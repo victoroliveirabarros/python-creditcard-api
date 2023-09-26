@@ -1,9 +1,10 @@
 from http import HTTPStatus
 from fastapi import APIRouter, Request, Response
 
-from app.domain.usecases import CreditCardParams
+from app.domain.usecases import CreditCardParams, UserParams
 from app.main.adapter import fastapi_adapter
 from app.main.factories import (create_credit_card_factory,
+                                create_user_factory,
                                 list_credit_cards_factory,
                                 get_credit_card_factory)
 
@@ -29,7 +30,6 @@ def add_credit_card(
 
 @router.get('/credit-card')
 def list_credit_cards(
-    request: Request,
     response: Response
 ):
     return fastapi_adapter(None, response, list_credit_cards_factory())
@@ -37,8 +37,19 @@ def list_credit_cards(
 @router.get('/credit-card/{id_card}')
 def get_credit_card(
     id_card: int,
-    request: Request,
     response: Response
 ):
     print("entrei aqui")
     return fastapi_adapter(None, response, get_credit_card_factory(id_card))
+
+user_route = APIRouter(
+    prefix='/api/v1',
+    tags=['Users']
+)
+
+@user_route.post('/user')
+def create_user(
+    body: UserParams,
+    response: Response
+):
+    return fastapi_adapter(body, response, create_user_factory())
