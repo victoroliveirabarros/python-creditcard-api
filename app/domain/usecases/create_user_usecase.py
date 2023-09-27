@@ -7,8 +7,8 @@ from .usecase import InputData, Usecase
 
 
 class UserParams(InputData):
-    username: str
-    password: str
+    username: Optional[str]
+    password: Optional[str]
     is_admin: bool
 
 

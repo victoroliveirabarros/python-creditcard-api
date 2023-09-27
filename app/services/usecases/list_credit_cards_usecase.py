@@ -26,7 +26,7 @@ class ListCreditCardsUsecase(Usecase):
         credit_cards_data = [
             {
                 'id': card.id,
-                'exp_date': datetime.datetime.strptime(card.exp_date, '%Y-%m-%d').strftime('%Y-%m-%d'),
+                'exp_date': card.exp_date,
                 'holder': card.holder,
                 'number': card.number,
                 'cvv': card.cvv,

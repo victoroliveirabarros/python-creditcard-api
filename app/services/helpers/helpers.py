@@ -78,7 +78,7 @@ def create_token(user_id):
 
 def validate_date_format(date):
     formato_esperado = "%Y-%m-%d"
-    
+
     try:
         datetime.datetime.strptime(date, formato_esperado)
         return True

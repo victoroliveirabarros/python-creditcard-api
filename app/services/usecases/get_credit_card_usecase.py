@@ -11,12 +11,15 @@ class GetCreditCardUsecase(Usecase):
     def __init__(
         self,
         session,
-        id_card
+        id_card=None
     ) -> None:
         self.session = session
         self.id_card = id_card
 
     def execute(self, params: None) -> HttpResponse:
+        if not self.id_card:
+            return HttpResponse(HTTPStatus.NOT_FOUND, 'Card id is missing')
+
         session = self.session()
 
         # Retrieve the credit card with the specified ID from the database
@@ -27,7 +30,7 @@ class GetCreditCardUsecase(Usecase):
         if credit_card is not None:
             credit_card_data = {
                 'id': credit_card.id,
-                'exp_date': datetime.datetime.strptime(credit_card.exp_date, '%Y-%m-%d').strftime('%Y-%m-%d'),
+                'exp_date': credit_card.exp_date,
                 'holder': credit_card.holder,
                 'number': credit_card.number,
                 'cvv': credit_card.cvv,
