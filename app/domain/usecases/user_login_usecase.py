@@ -1,7 +1,8 @@
 from abc import abstractmethod
 
 from app.services.helpers.http import HttpResponse
-from .usecase import Usecase, InputData
+
+from .usecase import InputData, Usecase
 
 
 class UserLoginParams(InputData):

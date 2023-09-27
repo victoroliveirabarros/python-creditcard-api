@@ -1,10 +1,10 @@
-from http import HTTPStatus
 import datetime
+from http import HTTPStatus
 
 from app.domain.models import CreditCardModel
-from app.domain.usecases import  Usecase
-
+from app.domain.usecases import Usecase
 from app.services.helpers.http.http import HttpResponse
+
 
 class ListCreditCardsUsecase(Usecase):
 
@@ -36,4 +36,3 @@ class ListCreditCardsUsecase(Usecase):
         ]
 
         return HttpResponse(HTTPStatus.OK, credit_cards_data)
-    

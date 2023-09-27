@@ -2,9 +2,8 @@ from http import HTTPStatus
 
 from app.domain.models import User
 from app.domain.usecases import UserLoginContract, UserLoginParams
-
-from app.services.helpers.http.http import HttpResponse
 from app.services.helpers import create_token
+from app.services.helpers.http.http import HttpResponse
 
 
 class UserLoginUsecase(UserLoginContract):

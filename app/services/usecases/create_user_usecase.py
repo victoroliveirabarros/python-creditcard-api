@@ -1,9 +1,8 @@
-from http import HTTPStatus
 import datetime
+from http import HTTPStatus
 
 from app.domain.models import User
 from app.domain.usecases import CreateUserContract, UserParams
-
 from app.services.helpers.http.http import HttpResponse
 
 
@@ -36,4 +35,3 @@ class CreateUserUsecase(CreateUserContract):
         session.commit()
 
         return HttpResponse(HTTPStatus.CREATED, {'message': 'User created successfully'})
-    

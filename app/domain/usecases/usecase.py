@@ -23,4 +23,3 @@ class Usecase(ABC):
     @abstractmethod
     def execute(self, *args: Optional[Any]) -> HttpResponse:
         raise NotImplementedError(NOT_IMPLEMENTED_ERROR)
-    
