@@ -52,6 +52,7 @@ $ make test
 ```
 A pasta de cobertura será criada com o nome ```htmlcov```.
 
+### Obs: Infelizmente não consegui desenvolver os testes de integração por falta de tempo
 
 
 ## Estrutura de pastas e arquitetura
