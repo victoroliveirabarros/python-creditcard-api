@@ -61,7 +61,7 @@ A pasta de cobertura será criada com o nome ```htmlcov```.
 
 O projeto atual utilizada uma arquitetura baseada na Clean Architeture, do livro escrito por Uncle Bob.
 
-![Alt text](docs/arquitetura-limpa.jpg "Clean Architeture")
+![Alt text](docs/architecture.png "Clean Architeture")
 
 
 ### Main Layer
