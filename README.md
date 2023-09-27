@@ -61,6 +61,8 @@ A pasta de cobertura será criada com o nome ```htmlcov```.
 
 O projeto atual utilizada uma arquitetura baseada na Clean Architeture, do livro escrito por Uncle Bob.
 
+![Alt text](docs/arquitetura-limpa.jpg "Clean Architeture")
+
 
 ### Main Layer
 A camada main é a mais suja da aplicação. Para todas as camadas serem limpas e desaclopadas, alguma tem que pagar o pato e conhecer todo mundo.
