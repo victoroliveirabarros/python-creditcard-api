@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "Cards"
+description = "Cards Service"
+authors = []
+version = "0.0.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 100
+skip-string-normalization = true
+
+[tool.isort]
+profile = "black"
+line_length = 100
+
+[tool.autopep8]
+max_line_length = 100
+in-place = true
+recursive = true
+exclude="main.py"
+ignore = ["E712", "W504", "E704", "E722"]
