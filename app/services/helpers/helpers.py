@@ -74,3 +74,13 @@ def create_token(user_id):
     }
     token = jwt.encode(payload, SECRET_KEY, algorithm='HS256')
     return token
+
+
+def validate_date_format(date):
+    formato_esperado = "%Y-%m-%d"
+    
+    try:
+        datetime.datetime.strptime(date, formato_esperado)
+        return True
+    except ValueError:
+        return False
